@@ -1,0 +1,10 @@
+1. go to the PEP
+2. use str.lower()
+3. use r.just #format is: "stringlafsdgkjabkjv".rjust(#, 'char')
+4. while there is no built in way to reverse a string, you can use slicing  (format is string[start:end:step])
+    so string[::-1] will produce a reversed string.
+5. by indexing a list[index number]
+6. you can look up what the list index of a gfiven item in a list is by using the function list.index
+7. if you look up an index and its outside the list you get an error 
+8. you can write large ints by using underscores as would commas in natural language
+9. use type(value) function to see what type of input you have
