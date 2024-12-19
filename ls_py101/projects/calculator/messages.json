@@ -1,0 +1,30 @@
+{
+    "en": {
+        "welcome"      : "Welcome to Calculator_2.0",
+        "input_num"    : ["What's the first number", "What's the second number"],
+        "input_op"     : "What operation would you like to perform? 1) Add 2) Subtract 3) Multiply 4) Divide",
+        "thank_goodbye": "Thank you, have a wonderful day!",
+        "again_yn"     : "Would you like to make another calculation? (y/n)",
+        "yn_isblank"   : "Please enter 'y' (yes) to calculate again or 'n' (no) to exit the program.",
+        "invalid_yn"   : "Please limit response to either 'y' or 'n'",
+        "invalid_num"  : "Hmm... that doesn't look like a valid number. Please try again",
+        "invalid_op"   : "You must choose 1, 2, 3, or 4",
+        "result"       : "The result is",
+        "line_break"   : "************************************************************************************"
+    },
+    "sl": {
+        "welcome"      : "Yo",
+        "input_num"    : ["gimma a digit", "and another"],
+        "input_op"     : "you finna math these up? 1) + 2) - 3) * 4) /",
+        "thank_goodbye": "K, bye",
+        "again_yn"     : "tryna run this sh*t back? (y/n)",
+        "yn_isblank"   : "hello? yes or no?",
+        "invalid_yn"   : "you dumb? I said y for yes, n for no",
+        "invalid_num"  : "I said a NUMBER!",
+        "invalid_op"   : "pick 1, 2, 3, or 4, dummy",
+        "result"       : "it's",
+        "line_break"   : "************************************************************************************"
+
+    }
+
+}

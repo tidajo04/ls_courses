@@ -8,6 +8,6 @@
             ***change the "env_d" (in both lines above) to whatever environment you previously created and want to use
         $ python --version 
             *** checks the version being used in the environment
-3. INSTALL Plint for every virtual environment you create 
+3. INSTALL Pylint for every virtual environment you create 
     *** pylint help check your code and troubleshoot issues (as of now env_d has it installed)
     - may also need to create a '.pylintrc' file in the working directory so that you can configure the pylint as needed (see lesson 2 projects for a good example of what to fill the pylintrc with)
