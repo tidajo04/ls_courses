@@ -10,6 +10,7 @@
         "invalid_num"  : "Hmm... that doesn't look like a valid number. Please try again",
         "invalid_op"   : "You must choose 1, 2, 3, or 4",
         "result"       : "The result is",
+        "div_0"        : "Error, cannot divide by zero.",
         "line_break"   : "************************************************************************************"
     },
     "sl": {
@@ -23,6 +24,7 @@
         "invalid_num"  : "I said a NUMBER!",
         "invalid_op"   : "pick 1, 2, 3, or 4, dummy",
         "result"       : "it's",
+        "div 0"        : "no dividing zero man...",
         "line_break"   : "************************************************************************************"
 
     }

@@ -1,6 +1,12 @@
+"""
+This module calculates 2 numbers with a freindly user interface.
+
+It should account for bad inputs and div 0 errors.
+
+"""
 ######### Imports ############################################################
 import json
-with open('messages.json', 'r') as file:
+with open('messages.json', 'r', encoding='utf-8') as file:
     MESSAGES = json.load(file)
 ######## DEFINE FUNCTIONS ####################################################
 def prompt(message):
@@ -19,16 +25,15 @@ def invalid_number(number_str):
 def repeat_calc (answer=''): #allows repeat w/ less nesting (more readable?)
     if answer.upper() == 'Y':
         return calculator_function()
-    elif answer.upper() == 'N':
+    if answer.upper() == 'N':
         prompt(MESSAGES[language]['thank_goodbye'])
-        return
-    elif answer == '':
+        return None
+    if answer == '':
         prompt(MESSAGES[language]['yn_isblank'])
         answer = input()
         return repeat_calc(answer)
-    else:
-        prompt(MESSAGES[language]['invalid_yn'])
-        return repeat_calc()
+    prompt(MESSAGES[language]['invalid_yn'])
+    return repeat_calc()
 
 def calculator_function():
     prompt(MESSAGES[language]['input_num'][0])
@@ -60,11 +65,16 @@ def calculator_function():
         case "3":
             output = float(number1) * float(number2)
         case "4":
-            output = float(number1) / float(number2)
+            if float(number2) != 0:
+                output = float(number1) / float(number2)
+            else:
+                output = prompt(MESSAGES[language]['div_0']) #output text if div 0 error
 
-    output = round(output, 2)
-
-    prompt(f'{MESSAGES[language]['result']} {output}')
+    if isinstance(output, (int, float)): #fixes error in using round function if
+        output = round(output, 2)        #div0 error caused string output
+        prompt(f'{MESSAGES[language]['result']} {output}')
+    else:
+        prompt(f'{MESSAGES[language]['result']} {output}')
 
     prompt(MESSAGES[language]['again_yn'])
     answer = input()

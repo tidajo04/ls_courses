@@ -1,12 +1,12 @@
-1. (1) print(f'Hello, {name}. You are a {profession}.')
+# 1. (1) print(f'Hello, {name}. You are a {profession}.')
 
-2. 
-ice_cream_density = 10
+# 2. 
+# ice_cream_density = 10
 
-while ice_cream_density > 0:
-    print('Drip...')
-    ice_cream_density -= 1
+# while ice_cream_density > 0:
+#     print('Drip...')
+#     ice_cream_density -= 1
 
-print('The ice cream melted.')
-3. pemdas = 4 * 5 + 3**2 / 10 = (4 * 5) + (3**2 / 10) = 20 + (9/10) = 20.9
-4. import the datetime module using import datetime, then type now = datetime.datetime.now()
+# print('The ice cream melted.')
+# 3. pemdas = 4 * 5 + 3**2 / 10 = (4 * 5) + (3**2 / 10) = 20 + (9/10) = 20.9
+# 4. import the datetime module using import datetime, then type now = datetime.datetime.now()
