@@ -4,9 +4,13 @@
     # 3. when ready to commit the changes, use $ 'git commit'
 
 # # branching (for tinkering with pre-existing/working code)
-    # 1. if I want to mess with already-working code (e.g. add features or simplify etc.), I should make a new branch from the main tree. this enables me to change whatever I need without corrupting the original, working code. 
+    # 1. if I want to mess with already-working code (e.g. add features or simplify etc.), 
+    #    I should make a new branch from the main tree. this enables me to 
+    #    change whatever I need without corrupting the original, working code. 
     # 2. to create new branch $ 'git checkout -b new_branch_name' 
-    #     - 'checkout' is shorthand for $ 'git branch new_branch_name' >>> $ 'git checkout new_branch_name' (thus if returning  back and forth from branch to branch after it has already been created, can just use $ 'git checkout new_branch_name')
+    #     - 'checkout' is shorthand for $ 'git branch new_branch_name' >>> $ 'git checkout new_branch_name' 
+    #       (thus if returning  back and forth from branch to branch after it has already been 
+    #       created, can just use $ 'git checkout new_branch_name')
     # 3. if unhappy with the new work, I can always go back to the main branch and delete the new one (or keep it to try again later). 
     #     - to return to main branch $ 'git checkout main'
     #     - to delete a branch with $ 'git branch -d new_branch_name'
