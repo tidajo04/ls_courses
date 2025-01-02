@@ -105,7 +105,6 @@ def calculate_again_prompt():
             prompt("""I'm sorry, I didn't understand your last 
     response. please answer 'y' for yes or 'n' for no.""")
     
-    
 
 def mortgage_calculator ():
     
@@ -131,18 +130,6 @@ def mortgage_calculator ():
         mortgage_calculator()
     else:
         return
-    
-
-
-        
-        
-   
-
-        
-    
-    
-    
-
       
 ############### START PROGRAM ################################################
 print("""
