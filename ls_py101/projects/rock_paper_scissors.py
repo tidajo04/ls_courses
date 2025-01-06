@@ -1,4 +1,4 @@
-##########imports & constants#################################################
+#### Imports & Constants #####################################################
 import random
 
 VALID_CHOICES = {
@@ -20,7 +20,9 @@ WINNING_CHOICES = {
         "spock"   : ["scissors", "rock"]
     }
 
-#####Functions################################################################
+WIN_NUM = 3
+
+#### Functions ###############################################################
 user_score = 0      #variables used in a few functions below for game tracking
 computer_score = 0      #tracks intra-game score
 user_game_tally = 0
@@ -29,6 +31,7 @@ computer_game_tally = 0  #tracks game wins
 def prompt(message):
     print(f"==> {message}")
 
+#prints greeter
 def welcome_message():
     print(' '.rjust(79, '*'))
     prompt(
@@ -49,6 +52,7 @@ def welcome_message():
     ''')
     print(' '.rjust(79, '*'))
 
+#Tests win, displays result, and adds to score
 def display_winner(player, computer):
     prompt(f"You chose {player}, computer chose {computer}.\n")
 
@@ -64,23 +68,25 @@ def display_winner(player, computer):
         prompt("Computer gets a point!")
         computer_score += 1
 
+#tests win condition, displays game over message, & tallies total games count
 def display_score():
 
     global user_game_tally
     global computer_game_tally
 
     print(f'<The score is player: {user_score}, computer: {computer_score}>\n')
-    if user_score == 3:
+    if user_score == WIN_NUM:
         user_game_tally += 1
         print('XXXXXXXXXXXXXXXXXXXX GAME OVER XXXXXXXXXXXXXXXXXXXX')
         prompt("You win! Congratulations!\n")
-    if computer_score == 3:
+    if computer_score == WIN_NUM:
         computer_game_tally += 1
         print('XXXXXXXXXXXXXXXXXXXX GAME OVER XXXXXXXXXXXXXXXXXXXX')
         prompt("You lose! Better luck next time!\n")
 
+#nested functions into gameplay loop & validates user input = valid choice
 def run_game():
-    while user_score < 3 and computer_score < 3:
+    while user_score < WIN_NUM and computer_score < WIN_NUM:
         prompt(f'Choose one: {", ".join(VALID_CHOICES.keys())}')
         choice_input = input()
 
@@ -99,7 +105,7 @@ def run_game():
                                                for alias in aliases]:
                     choice = key
                     break
-    #There must be a better way. Trying to stick with the idea of using a
+    #^There must be a better way. Trying to stick with the idea of using a
     # Dictionary, but then I had to go through all this to make it readable
     # and be able to output a key from the user input item... had to use
     # GPT for help again... still havent entiely wrapped my head around this
@@ -108,12 +114,13 @@ def run_game():
     # of values in a dict?
 
         computer_choice = random.choice(list(VALID_CHOICES.keys()))
-    #I guess .random wont select from a grouping of keys without turning
+    #^I guess .random wont select from a grouping of keys without turning
     #it into a list first? had to GPT troubleshoot here too.
         display_winner(choice, computer_choice)
 
         display_score()
 
+#custom game over messgae for replay prompt
 def game_state_replay_prompt():
     if user_game_tally == computer_game_tally:
         prompt(
@@ -159,4 +166,4 @@ while True:
         continue
     else:
         prompt("That's not a valid answer. Please try again (y/n)")
-#####End Program##############################################################
+#### End Program #############################################################
