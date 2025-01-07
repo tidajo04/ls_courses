@@ -23,11 +23,7 @@ WINNING_CHOICES = {
 WIN_NUM = 3
 
 #### Functions ###############################################################
-user_score = 0      #variables used in a few functions below for game tracking
-computer_score = 0      #tracks intra-game score
-user_game_tally = 0
-computer_game_tally = 0  #tracks game wins
-
+#formats print function for pretty display
 def prompt(message):
     print(f"==> {message}")
 
@@ -53,11 +49,8 @@ def welcome_message():
     print(' '.rjust(79, '*'))
 
 #Tests win, displays result, and adds to score
-def display_winner(player, computer):
+def display_winner(player, computer, user_score, computer_score):
     prompt(f"You chose {player}, computer chose {computer}.\n")
-
-    global user_score
-    global computer_score
 
     if player == computer:
         prompt("It's a tie! No points.")
@@ -68,24 +61,25 @@ def display_winner(player, computer):
         prompt("Computer gets a point!")
         computer_score += 1
 
+    return user_score, computer_score
+
 #tests win condition, displays game over message, & tallies total games count
-def display_score():
+def display_score(user_score, computer_score, user_tally, computer_tally):
 
-    global user_game_tally
-    global computer_game_tally
-
-    print(f'<The score is player: {user_score}, computer: {computer_score}>\n')
+    print(f'<Score is player: {user_score}, computer: {computer_score}>\n')
     if user_score == WIN_NUM:
-        user_game_tally += 1
+        user_tally += 1
         print('XXXXXXXXXXXXXXXXXXXX GAME OVER XXXXXXXXXXXXXXXXXXXX')
         prompt("You win! Congratulations!\n")
     if computer_score == WIN_NUM:
-        computer_game_tally += 1
+        computer_tally += 1
         print('XXXXXXXXXXXXXXXXXXXX GAME OVER XXXXXXXXXXXXXXXXXXXX')
         prompt("You lose! Better luck next time!\n")
 
+    return user_tally, computer_tally
+
 #nested functions into gameplay loop & validates user input = valid choice
-def run_game():
+def run_game(user_score, computer_score, user_tally, computer_tally):
     while user_score < WIN_NUM and computer_score < WIN_NUM:
         prompt(f'Choose one: {", ".join(VALID_CHOICES.keys())}')
         choice_input = input()
@@ -105,65 +99,72 @@ def run_game():
                                                for alias in aliases]:
                     choice = key
                     break
-    #^There must be a better way. Trying to stick with the idea of using a
-    # Dictionary, but then I had to go through all this to make it readable
-    # and be able to output a key from the user input item... had to use
-    # GPT for help again... still havent entiely wrapped my head around this
-    # and would need to look back to be able to do this again from memory.
-    # is there a module that can easily look up keys associated within a list
-    # of values in a dict?
 
         computer_choice = random.choice(list(VALID_CHOICES.keys()))
-    #^I guess .random wont select from a grouping of keys without turning
-    #it into a list first? had to GPT troubleshoot here too.
-        display_winner(choice, computer_choice)
 
-        display_score()
+        user_score, computer_score = display_winner(choice, computer_choice,
+                                                user_score, computer_score)
+
+        user_tally, computer_tally = display_score(user_score,
+                                                computer_score, user_tally,
+                                                computer_tally)
+
+    return user_score, computer_score, user_tally, computer_tally
 
 #custom game over messgae for replay prompt
-def game_state_replay_prompt():
-    if user_game_tally == computer_game_tally:
+def game_state_replay_prompt(user_tally, computer_tally):
+    if user_tally == computer_tally:
         prompt(
-        f"""You're tied {user_game_tally} to {computer_game_tally}!
+        f"""You're tied {user_tally} to {computer_tally}!
     You can't quit on a draw, can you?
     """)
 
-    if user_game_tally > computer_game_tally:
+    if user_tally > computer_tally:
         prompt(
-        f"""You're winning {user_game_tally} to {computer_game_tally}!
+        f"""You're winning {user_tally} to {computer_tally}!
     Won't you give us a chance to catch up?
     """)
 
-    if user_game_tally < computer_game_tally:
+    if user_tally < computer_tally:
         prompt(
-        f"""You're down {user_game_tally} to {computer_game_tally}!
+        f"""You're down {user_tally} to {computer_tally}!
     You wouldn't want to quit now, would you?
     """)
 
-#### Start Program ###########################################################
-welcome_message()
+#main game function (uses all others)
+def play_rpsls():
+    welcome_message()
 
-while True:
-    run_game() #made game loop separate from play_again options
+    user_tally = 0
+    computer_tally = 0
 
-    game_state_replay_prompt()
-
-    prompt("Do you want to play again? (y/n)")
-    answer = input().casefold()
-
-    if answer.startswith('n'):
-        prompt(
-    f"""The final score is:
-    you: {user_game_tally}, computer: {computer_game_tally}.
-    
-    GGs. Thank you for playing! Until next time!""")
-        break
-    if answer.startswith('y'):
-        prompt("Great, Let's run it back!\n")
-        print(' '.rjust(79, '*'))
+    while True:
         user_score = 0
         computer_score = 0
-        continue
-    else:
-        prompt("That's not a valid answer. Please try again (y/n)")
-#### End Program #############################################################
+
+        user_score, computer_score, user_tally, computer_tally =\
+                            run_game(user_score, computer_score,
+                                     user_tally, computer_tally)
+
+        game_state_replay_prompt(user_tally, computer_tally)
+        while True:
+            prompt("Do you want to play again? (y/n)")
+            answer = input().casefold()
+
+            if answer.startswith('n'):
+                prompt(
+            f"""The final score is:
+    you: {user_tally}, computer: {computer_tally}.
+            
+    GGs. Thank you for playing! Until next time!""")
+                return
+            if answer.startswith('y'):
+                prompt("Great, Let's run it back!\n")
+                print(' '.rjust(79, '*'))
+                user_score = 0
+                computer_score = 0
+                break
+
+            prompt("That's not a valid answer. Please try again (y/n)")
+#### Start Program ###########################################################
+play_rpsls()
