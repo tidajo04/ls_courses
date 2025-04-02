@@ -44,37 +44,37 @@ ALGORITHM
 - 3. return the same list with the new order.
 '''
 
-def sort_by_consonant_count(list_input):
-    list_input.sort(key=consonant_counter, reverse=True)
-    return list_input
+# def sort_by_consonant_count(list_input):
+#     list_input.sort(key=consonant_counter, reverse=True)
+#     return list_input
 
-def consonant_counter(string):
-    count = 0 
-    string = ''.join(string.split())
-    consonants = 'bcdfghjklmnpqrstvwxyz'
-    for i in range(1, len(string)):
-        if string[i] in consonants and string[i-1] in consonants:
-            count +=1
+# def consonant_counter(string):
+#     count = 0 
+#     string = ''.join(string.split())
+#     consonants = 'bcdfghjklmnpqrstvwxyz'
+#     for i in range(1, len(string)):
+#         if string[i] in consonants and string[i-1] in consonants:
+#             count +=1
     
-    return count
+#     return count
     
 
-my_list = ['aa', 'baa', 'ccaa', 'dddaa']
-print(sort_by_consonant_count(my_list))
-# ['dddaa', 'ccaa', 'aa', 'baa']
+# my_list = ['aa', 'baa', 'ccaa', 'dddaa']
+# print(sort_by_consonant_count(my_list))
+# # ['dddaa', 'ccaa', 'aa', 'baa']
 
-my_list = ['can can', 'toucan', 'batman', 'salt pan']
-print(sort_by_consonant_count(my_list))
-# ['salt pan', 'can can', 'batman', 'toucan']
+# my_list = ['can can', 'toucan', 'batman', 'salt pan']
+# print(sort_by_consonant_count(my_list))
+# # ['salt pan', 'can can', 'batman', 'toucan']
 
-my_list = ['bar', 'car', 'far', 'jar']
-print(sort_by_consonant_count(my_list))
-# ['bar', 'car', 'far', 'jar']
+# my_list = ['bar', 'car', 'far', 'jar']
+# print(sort_by_consonant_count(my_list))
+# # ['bar', 'car', 'far', 'jar']
 
-my_list = ['day', 'week', 'month', 'year']
-print(sort_by_consonant_count(my_list))
-# ['month', 'day', 'week', 'year']
+# my_list = ['day', 'week', 'month', 'year']
+# print(sort_by_consonant_count(my_list))
+# # ['month', 'day', 'week', 'year']
 
-my_list = ['xxxa', 'xxxx', 'xxxb']
-print(sort_by_consonant_count(my_list))
-# ['xxxx', 'xxxb', 'xxxa']
+# my_list = ['xxxa', 'xxxx', 'xxxb']
+# print(sort_by_consonant_count(my_list))
+# # ['xxxx', 'xxxb', 'xxxa']

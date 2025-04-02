@@ -318,12 +318,12 @@ algorithm:
 #             number //= 10
 #         return string[::-1]
 
-# # print(integer_to_string(4321) == "4321")              # True
-# # print(integer_to_string(0) == "0")                    # True
-# # print(integer_to_string(5000) == "5000")              # True
-# # print(integer_to_string(1234567890) == "1234567890")  # True
+# # # print(integer_to_string(4321) == "4321")              # True
+# # # print(integer_to_string(0) == "0")                    # True
+# # # print(integer_to_string(5000) == "5000")              # True
+# # # print(integer_to_string(1234567890) == "1234567890")  # True
 
-# #PP10 CONVERT A signed NUMBER TO A STRING
+# # #PP10 CONVERT A signed NUMBER TO A STRING
 
 
 # def signed_integer_to_string(number):
