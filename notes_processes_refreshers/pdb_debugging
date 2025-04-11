@@ -1,0 +1,17 @@
+'''
+1. when ready to debug, use 'import pdb' in code to import the pdb module
+2. use 'pdb.set_trace()' function to set a breakpoint in the code
+'''
+
+###example from py101 Lesson2: 15. debuggin techniques###
+
+# import pdb
+
+# counter = 1
+# pdb.set_trace()
+
+# while counter <= 5:
+#     print(counter)
+#     pdb.set_trace()  # Add breakpoint
+#     counter += 1
+
