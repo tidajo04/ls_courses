@@ -1,0 +1,11 @@
+{
+    "welcome": "Welcome to TicTacToe 1.0! if you don't know the rules...\n LOOK EM' UP!",
+    "difficulty_select": "Please select Easy Mode (player goes first) or Hard Mode (player goes second). (e/h)",
+    "difficulty_change": "Would you like to change the difficulty? (y/n)",
+    "input_rules": "\n INPUTS: where you place your mark is determined by the arrangement of your numpad.\n like so:\n 7|8|9\n 4|5|6\n 1|2|3",
+    "invalid_bin_answer": "I'm sorry, I didn't understand your answer. Please enter",
+    "invalid_choice": "I'm sorry, that is not a valid choice",
+    "enter_ready": "Hit enter when ready to begin the game or hit \"ctrl + c\" to exit the program",
+    "tie": "It's a Tie!",
+    "ggs": "Alright, GGs Gamer!"
+}
