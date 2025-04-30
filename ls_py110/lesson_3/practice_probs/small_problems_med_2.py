@@ -213,29 +213,29 @@ alg:
 # print(sum_square_difference(1) == 0)           # True
 # print(sum_square_difference(100) == 25164150)  # True
 
-def bubble_sort(lst):
-    while True:
-        check = False
-        for idx in range(len(lst) - 1):     
-            if lst[idx] > lst[idx +1]:
-                lst[idx], lst[idx+1] = lst[idx +1], lst[idx]
-                check = True
-        if not check:
-            break
-    return lst
+# def bubble_sort(lst):
+#     while True:
+#         check = False
+#         for idx in range(len(lst) - 1):     
+#             if lst[idx] > lst[idx +1]:
+#                 lst[idx], lst[idx+1] = lst[idx +1], lst[idx]
+#                 check = True
+#         if not check:
+#             break
+#     return lst
  
-lst1 = [5, 3]
-bubble_sort(lst1)
-print(lst1 == [3, 5])                   # True
+# lst1 = [5, 3]
+# bubble_sort(lst1)
+# print(lst1 == [3, 5])                   # True
 
-lst2 = [6, 2, 7, 1, 4]
-bubble_sort(lst2)
-print(lst2 == [1, 2, 4, 6, 7])          # True
+# lst2 = [6, 2, 7, 1, 4]
+# bubble_sort(lst2)
+# print(lst2 == [1, 2, 4, 6, 7])          # True
 
-lst3 = ['Sue', 'Pete', 'Alice', 'Tyler', 'Rachel',
-        'Kim', 'Bonnie']
-bubble_sort(lst3)
+# lst3 = ['Sue', 'Pete', 'Alice', 'Tyler', 'Rachel',
+#         'Kim', 'Bonnie']
+# bubble_sort(lst3)
 
-expected = ["Alice", "Bonnie", "Kim", "Pete",
-            "Rachel", "Sue", "Tyler"]
-print(lst3 == expected)                 # True
+# expected = ["Alice", "Bonnie", "Kim", "Pete",
+#             "Rachel", "Sue", "Tyler"]
+# print(lst3 == expected)                 # True
